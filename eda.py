@@ -183,10 +183,14 @@ def bin_mediator(df, num_bin=6):
     Output:
         a new dataframe with added bins
     """
-    assert num_bin>0
-    for c in MEDIATORS:
-        df[c+'_bin'] = pd.qcut(df[c], num_bin)
+    import copy
 
+    assert num_bin>0
+    new_df = copy.deepcopy(df)
+    for c in MEDIATORS:
+        new_df[c+'_bin'] = pd.qcut(df[c], num_bin)
+    return new_df
+`
 """
 An experiment
 """
@@ -209,6 +213,9 @@ def run_experiment(country=COUNTRY, shift_range = range(28, 100)):
 
     return shift_op, co
 
+df = create_join_data(COUNTRY)
+# add mortality rate column
+df = df.assign(mor_rate=lambda x: x.death/x.confirmed)
 """
 experiment results
 """
