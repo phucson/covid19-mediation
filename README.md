@@ -1,7 +1,3 @@
-# Link
-
-https://www.notion.so/Formulation-f09ccda1675f40368ad4fb009dfab906
-
 # Formulation
 
 Created: Jul 10, 2020 9:33 AM
@@ -53,13 +49,15 @@ $P(A=a\vert C=UK)$ are all in table 3, $P(M=1\vert A=a, C=UK)$ are all in table 
 
 # Natural Indirect Effect
 
+$$\begin{aligned} NIE_{UK->Belgium} &= E\Big[M_{A=A_{Belgium}}\vert do(C=UK)\Big]-E\Big[M_{A=A_{UK}}\vert do(C=UK)\Big]\\ &= \sum_a\Big[P(A=a\vert do(C=Belgium))-P(A=a\vert do(C=UK))\Big]P(M=1\vert do(A=a,C=Belgium))\\ &\stackrel{\text{causal sufficiency}}{=} \sum_a \Big[P(A=a\vert C=Belgium)-P(A=a\vert C=UK)\Big]P(M=1\vert do(A=a,C=Belgium))\end{aligned}$$
+
 # Subtractivity principle
 
 Verify whether
 
 $$TCE_{UK->Belgium}=NDE_{UK->Belgium}+NIE_{UK->Belgium}$$
 
-If they are not equal then there is **moderation** happening
+If there is no equality then there is certain **moderation** happening
 
 # Mediator selection (???)
 
